@@ -152,6 +152,10 @@ module Sorcery
             send_activation_needed_email! if send_email
           end
 
+          def activated?
+            self.send(sorcery_config.activation_state_attribute_name) == "active"
+          end
+
           protected
 
           def setup_activation
