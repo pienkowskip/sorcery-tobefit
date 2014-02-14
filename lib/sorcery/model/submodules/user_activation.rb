@@ -146,6 +146,12 @@ module Sorcery
             sorcery_save(:validate => false, :raise_on_failure => true)
           end
 
+          def setup_activation!
+            setup_activation
+            save!
+            send_activation_needed_email!
+          end
+
           protected
 
           def setup_activation
